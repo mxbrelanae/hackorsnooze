@@ -41,11 +41,34 @@
     <a class="nav-link" href="#" id="nav-login">login/signup</a>
     <a class="nav-link" href="#" id="nav-user-profile"></a>
     <a class="hidden" id="nav-logout" href="#"><small>(logout)</small></a>
+    <a class="nav-link" href="#" id="nav-submit">submit</a>
   </div>
 </nav>
 
 <!-- area for stories (all stories, user stories, favorites) -->
 <section class="stories-container container">
+
+  <!-- add a story form-->
+  <form
+      action="#"  
+      id="nav-submit"
+      class="account-form hidden"
+      method="post">
+    <h4>Add a story!</h4>
+    <div class="add-story">
+      <label for="story-title">Title</label>
+      <input id="story-title" autocapitalize="words">
+    </div>
+    <div class="add-story">
+      <label for="story-author">Author</label>
+      <input id="story-author" autocapitalize="words">
+    </div>
+    <div class="add-story">
+      <label for="story-url">Url</label>
+      <input id="story-url" autocapitalize="words">
+    </div>
+    <button type="submit">Add Story</button>
+  </form>
 
   <!-- loading message (removed by JS after stories loaded) -->
   <div id="stories-loading-msg">Loading&hellip;</div>

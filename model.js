@@ -25,12 +25,8 @@ class Story {
 
   getHostName() {
     // UNIMPLEMENTED: complete this function!
-    let urlHost = $("<a>");
-    urlHost.href = url;
-
-    console.log(urlHost.hostname);
-
-    return "hostname.com";
+    const urlHost = this.url; //maybe store as a variable for later?
+    return new URL(urlHost).host; //URL Property and methods are built API                                                               
   }
 }
 
@@ -78,26 +74,23 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory(user, {title, author, url}) {
-    // UNIMPLEMENTED: complete this function!
-    
-    
+  async addStory(user, {title, author, url } ) {
+  
+  const token = user.loginToken; //for auth of user
+
     const response = await axios ({ 
       url: `${BASE_URL}/stories`,
       method: "POST",
-      data: {  story: {title, author, url }, token }
+      data: {  story: { title, author, url }, token: user.loginToken},
     });
-    
-    
+     
     const story = new Story(response.data.story);
     this.stories.unshift(story); //unshift adds story to the beginning of the stories array
-    const token = user.loginToken;
-
-    return story;
-
+   
+    return new Story(response.data.story);
   }
-}
-
+} 
+ 
 
 /******************************************************************************
  * User: a user in the system (only used to represent the current user)
@@ -127,6 +120,7 @@ class User {
 
     // store the login token on the user so it's easy to find for API calls.
     this.loginToken = token;
+   
   }
 
   /** Register new user in API, make User instance & return it.
