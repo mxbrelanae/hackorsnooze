@@ -25,6 +25,11 @@ class Story {
 
   getHostName() {
     // UNIMPLEMENTED: complete this function!
+    let urlHost = $("<a>");
+    urlHost.href = url;
+
+    console.log(urlHost.hostname);
+
     return "hostname.com";
   }
 }
@@ -39,7 +44,7 @@ class StoryList {
     this.stories = stories;
   }
 
-  /** Generate a new StoryList. It:
+  /** Generate a new StoryList. It:  
    *
    *  - calls the API
    *  - builds an array of Story instances
@@ -73,8 +78,23 @@ class StoryList {
    * Returns the new Story instance
    */
 
-  async addStory( /* user, newStory */) {
+  async addStory(user, {title, author, url}) {
     // UNIMPLEMENTED: complete this function!
+    
+    
+    const response = await axios ({ 
+      url: `${BASE_URL}/stories`,
+      method: "POST",
+      data: {  story: {title, author, url }, token }
+    });
+    
+    
+    const story = new Story(response.data.story);
+    this.stories.unshift(story); //unshift adds story to the beginning of the stories array
+    const token = user.loginToken;
+
+    return story;
+
   }
 }
 
