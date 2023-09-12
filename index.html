@@ -40,9 +40,17 @@
   <div class="nav-right">
     <a class="nav-link" href="#" id="nav-login">login/signup</a>
     <a class="nav-link" href="#" id="nav-user-profile"></a>
+    ||
     <a class="hidden" id="nav-logout" href="#"><small>(logout)</small></a>
-    <a class="nav-link" href="#" id="nav-submit">submit</a>
   </div>
+  <div class="nav-links-user hidden" style="display: block;">
+    |
+    <a class="nav-link" href="#" id="nav-submit">submit</a>
+    |
+    <a class="nav-link" href="#" id="nav-favorites">favorites</a>
+    |
+    <a class="nav-link" href="#" id="nav-own-stories">my stories</a>
+  </div> 
 </nav>
 
 <!-- area for stories (all stories, user stories, favorites) -->
@@ -51,35 +59,42 @@
   <!-- add a story form-->
   <form
       action="#"  
-      id="nav-submit"
-      class="account-form hidden"
+      id="story-form"
+      class="form hidden"
       method="post">
     <h4>Add a story!</h4>
-    <div class="add-story">
+    <div class="story-input">
       <label for="story-title">Title</label>
-      <input id="story-title" autocapitalize="words">
+      <input id="story-title" placeholder="Enter Story Title">
     </div>
-    <div class="add-story">
+    <div class="story-input">
       <label for="story-author">Author</label>
-      <input id="story-author" autocapitalize="words">
+      <input id="story-author" placeholder="Enter Story Author">
     </div>
-    <div class="add-story">
-      <label for="story-url">Url</label>
-      <input id="story-url" autocapitalize="words">
+    <div class="story-input">
+      <label for="story-url">URL</label>
+      <input id="story-url" placeholder="Enter Story Link">
     </div>
-    <button type="submit">Add Story</button>
+    <button type="submit">Submit</button>
+    <hr>
   </form>
 
   <!-- loading message (removed by JS after stories loaded) -->
-  <div id="stories-loading-msg">Loading&hellip;</div>
+  <div id="stories-loading-msg">Loading</div>
 
   <!-- List of all stories -->
   <ol id="all-stories-list" class="stories-list"></ol>
 
+  <!-- List of user favorites -->
+  <ol id="favorite-stories" class="hidden stories-list"></ol>
+
+  <!-- List of user stories -->
+  <ol id="own-stories" class="hidden stories-list"></ol>
+
 </section>
 
 <!-- Login and signup forms -->
-<section class="account-forms-container container">
+<section class="account-forms">
 
   <!-- Login form -->
   <form action="#" id="login-form" class="account-form hidden" method="post">
@@ -117,6 +132,18 @@
     </div>
     <button type="submit">create account</button>
   </form>
+</section>
+
+<!-- Make User profile -->
+<section id="user-profile" class="hidden" style="display: block;">
+  <div class="user-profile-div container">
+    <h4>User Profile</h4>
+    <section>
+      <div>"Name: "<span id="profile-name"></span></div>
+      <div>"Username: "<span id="profile-username"></span></div>
+      <div>"Account Created: "<span id="profile-account-created"></span></div>
+    </section>
+  </div>
 </section>
 
 <!-- Library JS & our JS -->

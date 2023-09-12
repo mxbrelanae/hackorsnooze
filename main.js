@@ -3,16 +3,22 @@
 // So we don't have to keep re-finding things on page, find DOM elements once:
 
 const $body = $("body");
+const $storiesList = $(".stories-list");
+const $favoriteStories = $("#favorite-stories");
+const $ownStories = $("#own-stories");
 
 const $storiesLoadingMsg = $("#stories-loading-msg");
 const $allStoriesList = $("#all-stories-list");
 
 const $loginForm = $("#login-form");
 const $signupForm = $("#signup-form");
+const $storyForm = $("#story-form");
 
 const $navLogin = $("#nav-login");
 const $navUserProfile = $("#nav-user-profile");
 const $navLogOut = $("#nav-logout");
+const $navSubmit = $("#nav-submit");
+const $userProfile = $("#user-profile");
 
 /** To make it easier for individual components to show just themselves, this
  * is a useful function that hides pretty much everything on the page. After
@@ -21,10 +27,13 @@ const $navLogOut = $("#nav-logout");
 
 function hidePageComponents() {
   const components = [
-    $allStoriesList,
+    $storiesList,
     $loginForm,
     $signupForm,
+    $storyForm,
+    $userProfile
   ];
+
   components.forEach(c => c.hide());
 }
 
@@ -36,6 +45,8 @@ async function start() {
   // "Remember logged-in user" and log in, if credentials in localStorage
   await checkForRememberedUser();
   await getAndShowStoriesOnStart();
+  $userProfile.hide();
+  
 
   // if we got a logged-in user
   if (currentUser) updateUIOnUserLogin();

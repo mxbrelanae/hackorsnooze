@@ -26,7 +26,7 @@ async function login(evt) {
   saveUserCredentialsInLocalStorage();
   updateUIOnUserLogin();
 }
-
+ 
 $loginForm.on("submit", login);
 
 /** Handle signup form submission. */
@@ -109,8 +109,20 @@ function saveUserCredentialsInLocalStorage() {
 
 function updateUIOnUserLogin() {
   console.debug("updateUIOnUserLogin");
-
+  putStoriesOnPage();
   $allStoriesList.show();
-
+  userInfo();
   updateNavOnLogin();
+  
+  
+}
+
+/** Show a "user profile" part of page built from the current user's info. */
+
+function userInfo() {
+  console.debug("userInfo");
+
+  $("#profile-name").text(currentUser.name);
+  $("#profile-username").text(currentUser.username);
+  $("#profile-account-created").text(currentUser.createdAt.slice(0, 10));
 }

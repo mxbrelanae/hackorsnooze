@@ -6,19 +6,26 @@ nav {
     align-items: center;
     padding: 5px 20px;
     border-radius: 3px 3px 0 0;
+    font-size: 20px;
   }
   
   .navbar-brand {
     font-weight: bold;
   }
+  .nav-links-user {
+    margin: 0 10px;
+    justify-content: center;
+    align-items: center;
+  }
   
   .nav-link {
-    font-size: 0.85rem;
+    font-size: 20px;
     margin: 0 3px;
   }
   
   .nav-right {
     margin-left: auto;
     text-align: right;
+    font-weight: bold;
   }
   

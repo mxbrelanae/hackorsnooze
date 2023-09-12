@@ -9,6 +9,16 @@
     width: 8rem;
   }
   
-  .account-forms-container {
+  .account-forms {
     padding-left: 20px;
   }
+  
+
+.user-profile-div {
+  padding: 10px 20px 20px;
+  font-size: 0.9rem;
+}
+
+.user-profile-div> * {
+  margin: 10px 0;
+}

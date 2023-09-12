@@ -1,40 +1,67 @@
 /* Lists of stories */
 
 .stories-list {
-    margin: 20px 5px;
-  }
+  margin: 20px 5px;
+}
   
-  .stories-list > li {
-    color: gray;
-    font-size: 0.8rem;
-    margin: 10px 0;
-  }
+.stories-list > li {
+  color: gray;
+  font-size: 0.8rem;
+  margin: 10px 0;
+}
   
-  #stories-loading-msg {
-    font-weight: bold;
-    font-size: 150%;
-    margin: 20px 30px;
-  }
+#stories-loading-msg {
+  font-weight: bold;
+  font-size: 150%;
+  margin: 20px 30px;
+}
   
+#favorited-stories,
+#own-stories {
+  list-style: none;
+  padding-left: 20px;
+}
   
   /* Individual stories */
   
-  .story-link {
-    color: black;
-    font-size: 0.85rem;
-    font-weight: normal;
-    margin: 18px 0;
-  }
+.story-link {
+  color: blue;
+  font-size: 0.85rem;
+  font-weight: normal;
+  margin: 18px 0;
+}
   
-  .story-link:hover {
-    text-decoration: none;
-  }
+.story-link:hover {
+  text-decoration: none;
+}
   
-  .story-author {
-    margin-left: 2em;
-  }
+.story-author {
+  margin-left: 2em;
+  color: green;
+}
   
-  .story-user {
-    display: block;
-  }
+.story-user {
+ display: block;
+ color: orange;
+}
   
+.trash-can {
+  font-size: 0.75rem;
+  margin: 0 5px;
+  cursor: pointer;
+}
+  
+.star {
+  font-size: 0.75rem;
+  margin: 0 5px;
+  cursor: pointer;
+  color: gold;
+}
+
+.trash-can:hover {
+  color: blue;
+}
+
+.star:hover {
+  color: gold;
+}
